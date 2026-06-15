@@ -39,8 +39,9 @@ synth_samples = []
 
 for i in range(points_needed):
 	# randomly pick 2 minority rows
-	a = minority_df.iloc[0]
-	b = minority_df.iloc[1]
+	samples = minority_df.sample(2)
+	a = samples.iloc[0]
+	b = samples.iloc[1]
 	x = np.random.rand() # randomly pick weight
 	# generate the new new data point
 	new_Val1 = int(round(a["Val1"] + x * (b["Val1"] - a["Val1"])))
